@@ -11,17 +11,17 @@ import type { UnitKind } from "./index.ts";
 // demo roster so the flow stays testable — flip it off once positions.json is
 // populated for real.
 
-export interface Unit {
-  /** Province the unit currently occupies. */
+export type Unit = {
+  // Province the unit currently occupies.
   province: string;
   kind: UnitKind;
-}
+};
 
-interface PlayerState {
-  /** Display name, for readability in the JSON file. Optional. */
+type PlayerState = {
+  // Display name, for readability in the JSON file. Optional.
   name?: string;
   units: Unit[];
-}
+};
 
 type Positions = Record<string, PlayerState>;
 
@@ -60,7 +60,7 @@ async function persist(): Promise<void> {
   await Bun.write(DATA_PATH, JSON.stringify(positions, null, 2));
 }
 
-/** Get a player's state, materializing a demo roster for unknown users. */
+// Get a player's state, materializing a demo roster for unknown users.
 function ensurePlayer(userId: string): PlayerState {
   let player = positions[userId];
   if (!player) {
@@ -72,21 +72,19 @@ function ensurePlayer(userId: string): PlayerState {
   return player;
 }
 
-/** Units controlled by a given Discord user. */
+// Units controlled by a given Discord user.
 export function getUnitsForUser(userId: string): Unit[] {
   return ensurePlayer(userId).units;
 }
 
-/** Find one of a user's units by the province it occupies. */
+// Find one of a user's units by the province it occupies.
 export function getUnitAt(userId: string, province: string): Unit | undefined {
   return getUnitsForUser(userId).find((unit) => unit.province === province);
 }
 
-/**
- * Apply a player's submitted moves to the board: each unit at `source`
- * relocates to `destination`. Naive — no simultaneous-conflict resolution
- * yet; that's the adjudication step. Persists the new positions.
- */
+// Apply a player's submitted moves to the board: each unit at `source`
+// relocates to `destination`. Naive — no simultaneous-conflict resolution
+// yet; that's the adjudication step. Persists the new positions.
 export async function applyMoves(
   userId: string,
   moves: MoveOrder[],

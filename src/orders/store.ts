@@ -3,10 +3,10 @@
 // guild -> user -> source province, so each unit holds exactly one order and
 // re-ordering the same unit overwrites the previous choice.
 
-export interface MoveOrder {
+export type MoveOrder = {
   source: string;
   destination: string;
-}
+};
 
 type OrdersFile = Record<string, Record<string, Record<string, MoveOrder>>>;
 
@@ -30,12 +30,12 @@ async function persist(): Promise<void> {
   await Bun.write(FILE_PATH, JSON.stringify(orders, null, 2));
 }
 
-/** All move orders a user has staged in a guild, in insertion order. */
+// All move orders a user has staged in a guild, in insertion order.
 export function getUserOrders(guildId: string, userId: string): MoveOrder[] {
   return Object.values(orders[guildId]?.[userId] ?? {});
 }
 
-/** Save (or overwrite) the order for the unit at `order.source`. */
+// Save (or overwrite) the order for the unit at `order.source`.
 export async function setOrder(
   guildId: string,
   userId: string,
@@ -49,7 +49,7 @@ export async function setOrder(
   await persist();
 }
 
-/** Remove the single order for the unit at `source`, if present. */
+// Remove the single order for the unit at `source`, if present.
 export async function removeOrder(
   guildId: string,
   userId: string,
@@ -61,7 +61,7 @@ export async function removeOrder(
   }
 }
 
-/** Remove every staged order for a user in a guild. */
+// Remove every staged order for a user in a guild.
 export async function clearUserOrders(
   guildId: string,
   userId: string,

@@ -53,7 +53,7 @@ function chunk<T>(items: T[], size: number): T[][] {
   return rows;
 }
 
-/** A row of red "remove this order" buttons, one per staged move. */
+// A row of red "remove this order" buttons, one per staged move.
 function removeRows(
   staged: MoveOrder[],
 ): ActionRowBuilder<MessageActionRowComponentBuilder>[] {
@@ -73,7 +73,7 @@ function removeRows(
     );
 }
 
-/** The order sheet: every staged move, its remove buttons, and the actions. */
+// The order sheet: every staged move, its remove buttons, and the actions.
 function listView(guildId: string | null, userId: string): View {
   const staged = getUserOrders(guildKey(guildId), userId);
 
@@ -109,7 +109,7 @@ function listView(guildId: string | null, userId: string): View {
   };
 }
 
-/** Pick which unit to move. */
+// Pick which unit to move.
 function sourceView(userId: string): View {
   const units = getUnitsForUser(userId);
 
@@ -135,7 +135,7 @@ function sourceView(userId: string): View {
   };
 }
 
-/** Pick the destination for the unit at `source`. */
+// Pick the destination for the unit at `source`.
 function destView(userId: string, source: string): View {
   const unit = getUnitAt(userId, source);
   if (!unit) {
@@ -178,13 +178,13 @@ function cancelRow(): ActionRowBuilder<MessageActionRowComponentBuilder> {
   );
 }
 
-/** Format a player's orders in the game's notation: "Source - Destination". */
+// Format a player's orders in the game's notation: "Source - Destination".
 function formatOrders(displayName: string, staged: MoveOrder[]): string {
   const body = staged.map((o) => `${o.source} - ${o.destination}`).join("\n");
   return `**${displayName}**\n${body}`;
 }
 
-/** Post the staged orders to the orders channel; returns the resulting view. */
+// Post the staged orders to the orders channel; returns the resulting view.
 async function submit(interaction: MessageComponentInteraction): Promise<View> {
   const guildId = interaction.guildId;
   const userId = interaction.user.id;
@@ -221,7 +221,7 @@ async function submit(interaction: MessageComponentInteraction): Promise<View> {
   };
 }
 
-/** Entry point for the /move slash command. */
+// Entry point for the /move slash command.
 export async function startMove(
   interaction: ChatInputCommandInteraction,
 ): Promise<void> {
@@ -232,7 +232,7 @@ export async function startMove(
   });
 }
 
-/** Routes every `move:*` button and select-menu interaction. */
+// Routes every `move:*` button and select-menu interaction.
 export async function handleMoveComponent(
   interaction: MessageComponentInteraction,
 ): Promise<void> {
@@ -289,7 +289,7 @@ export async function handleMoveComponent(
   await interaction.update(view as InteractionUpdateOptions);
 }
 
-/** Whether this component interaction belongs to the move flow. */
+// Whether this component interaction belongs to the move flow.
 export function isMoveComponent(customId: string): boolean {
   return customId.startsWith(`${PREFIX}:`);
 }
