@@ -37,11 +37,15 @@ bun install
 
 ### 4. Configure environment
 
-```bash
-cp .env.example .env
+Create a `.env` file in the project root with:
+
+```
+DISCORD_TOKEN=your-bot-token
+DISCORD_CLIENT_ID=your-application-id
+DISCORD_GUILD_ID=your-server-id
 ```
 
-Fill in `DISCORD_TOKEN`, `DISCORD_CLIENT_ID`, and `DISCORD_GUILD_ID`. Bun loads `.env` automatically.
+`.env` is gitignored. Bun loads it automatically.
 
 ### 5. Invite the bot to your server
 
