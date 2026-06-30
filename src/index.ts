@@ -2,10 +2,8 @@ import { Client, Events, GatewayIntentBits, MessageFlags } from "discord.js";
 import { commands } from "./commands/index.ts";
 import { config } from "./config.ts";
 
-/**
- * The bot only uses slash commands and message components, so it needs the
- * Guilds intent and nothing privileged (no message-content reading).
- */
+// The bot only uses slash commands and message components, so it needs the
+// Guilds intent and nothing privileged (no message-content reading).
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
 client.once(Events.ClientReady, (ready) => {
