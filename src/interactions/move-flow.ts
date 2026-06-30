@@ -12,7 +12,7 @@ import {
 } from "discord.js";
 import { config } from "../config.ts";
 import { validDestinations } from "../map/index.ts";
-import { getUnitAt, getUnitsForUser } from "../map/state.ts";
+import { applyMoves, getUnitAt, getUnitsForUser } from "../map/state.ts";
 import {
   type MoveOrder,
   clearUserOrders,
@@ -209,9 +209,14 @@ async function submit(interaction: MessageComponentInteraction): Promise<View> {
     allowedMentions: { parse: [] },
   });
 
+  // Move the units to their new positions, then clear the staged orders so
+  // the next /move starts from the updated board.
+  await applyMoves(userId, staged);
+  await clearUserOrders(guildKey(guildId), userId);
+
   const base = listView(guildId, userId);
   return {
-    content: `✅ Submitted to <#${config.ordersChannelId}>.\n${base.content}`,
+    content: `✅ Submitted to <#${config.ordersChannelId}> and updated your positions.\n${base.content}`,
     components: base.components,
   };
 }

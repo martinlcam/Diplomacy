@@ -4,6 +4,7 @@ import type {
   SlashCommandOptionsOnlyBuilder,
 } from "discord.js";
 import * as move from "./move.ts";
+import * as whoami from "./whoami.ts";
 
 // Shape every slash command module must satisfy.
 export type Command = {
@@ -13,5 +14,5 @@ export type Command = {
 
 // All registered slash commands, keyed by command name for fast dispatch.
 export const commands = new Map<string, Command>(
-  [move].map((command) => [command.data.name, command]),
+  [move, whoami].map((command) => [command.data.name, command]),
 );
