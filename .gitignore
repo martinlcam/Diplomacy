@@ -14,6 +14,10 @@
 
 # production
 /build
+/dist
+
+# bot data (json persistence)
+/data
 
 # misc
 .DS_Store
