@@ -49,6 +49,18 @@ export async function setOrder(
   await persist();
 }
 
+/** Remove the single order for the unit at `source`, if present. */
+export async function removeOrder(
+  guildId: string,
+  userId: string,
+  source: string,
+): Promise<void> {
+  if (orders[guildId]?.[userId]?.[source]) {
+    delete orders[guildId][userId][source];
+    await persist();
+  }
+}
+
 /** Remove every staged order for a user in a guild. */
 export async function clearUserOrders(
   guildId: string,
