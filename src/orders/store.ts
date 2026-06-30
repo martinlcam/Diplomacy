@@ -41,7 +41,11 @@ export async function setOrder(
   userId: string,
   order: MoveOrder,
 ): Promise<void> {
-  ((orders[guildId] ??= {})[userId] ??= {})[order.source] = order;
+  const guild = orders[guildId] ?? {};
+  orders[guildId] = guild;
+  const user = guild[userId] ?? {};
+  guild[userId] = user;
+  user[order.source] = order;
   await persist();
 }
 

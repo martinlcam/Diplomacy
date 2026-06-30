@@ -14,7 +14,7 @@ export interface Unit {
 const PLACEHOLDER_UNITS: readonly Unit[] = [
   { province: "Argent Mountains", kind: "army" },
   { province: "Antathir Plain", kind: "army" },
-  { province: "Aurma", kind: "army" },
+  { province: "Nockmirch", kind: "army" },
   { province: "Amarantine Sea 1", kind: "fleet" },
   { province: "Amarantine Coast", kind: "fleet" },
 ];

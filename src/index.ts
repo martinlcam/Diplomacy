@@ -1,6 +1,10 @@
 import { Client, Events, GatewayIntentBits, MessageFlags } from "discord.js";
 import { commands } from "./commands/index.ts";
 import { config } from "./config.ts";
+import {
+  handleMoveComponent,
+  isMoveComponent,
+} from "./interactions/move-flow.ts";
 
 // The bot only uses slash commands and message components, so it needs the
 // Guilds intent and nothing privileged (no message-content reading).
@@ -11,26 +15,35 @@ client.once(Events.ClientReady, (ready) => {
 });
 
 client.on(Events.InteractionCreate, async (interaction) => {
-  if (!interaction.isChatInputCommand()) return;
-
-  const command = commands.get(interaction.commandName);
-  if (!command) {
-    console.warn(`Received unknown command: ${interaction.commandName}`);
-    return;
-  }
-
   try {
-    await command.execute(interaction);
+    if (interaction.isChatInputCommand()) {
+      const command = commands.get(interaction.commandName);
+      if (!command) {
+        console.warn(`Received unknown command: ${interaction.commandName}`);
+        return;
+      }
+      await command.execute(interaction);
+      return;
+    }
+
+    if (
+      (interaction.isButton() || interaction.isStringSelectMenu()) &&
+      isMoveComponent(interaction.customId)
+    ) {
+      await handleMoveComponent(interaction);
+      return;
+    }
   } catch (error) {
-    console.error(`Error handling /${interaction.commandName}:`, error);
-    const message = {
-      content: "⚠️ Something went wrong handling that command.",
-      flags: MessageFlags.Ephemeral,
-    } as const;
-    if (interaction.replied || interaction.deferred) {
-      await interaction.followUp(message);
-    } else {
-      await interaction.reply(message);
+    console.error("Error handling interaction:", error);
+    if (
+      interaction.isRepliable() &&
+      !interaction.replied &&
+      !interaction.deferred
+    ) {
+      await interaction.reply({
+        content: "⚠️ Something went wrong handling that interaction.",
+        flags: MessageFlags.Ephemeral,
+      });
     }
   }
 });
