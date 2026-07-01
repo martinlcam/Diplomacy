@@ -1,0 +1,81 @@
+{
+  "634195969290010654": {
+    "name": "notabeverage [IMPR]",
+    "units": [
+      { "province": "Nockmirch", "kind": "army" },
+      { "province": "Tokogol", "kind": "army" },
+      { "province": "Blood Mountains", "kind": "army" },
+      { "province": "Dalamor Coast", "kind": "army" },
+      { "province": "Ruug", "kind": "army" },
+      { "province": "The Drakkengate", "kind": "army" },
+      { "province": "Iron Pinnacle", "kind": "army" },
+      { "province": "Immortal Bastion", "kind": "army" }
+    ]
+  },
+  "455917354027843595": {
+    "name": "YAMASHITA [SLAY]",
+    "units": [
+      { "province": "Niverøya Island", "kind": "fleet" },
+      { "province": "Rakelstake", "kind": "army" },
+      { "province": "East Fang", "kind": "army" },
+      { "province": "Trinity Mountains", "kind": "army" },
+      { "province": "Naljaäg", "kind": "army" },
+      { "province": "Ironspike Mountains", "kind": "army" },
+      { "province": "Quchar", "kind": "army" },
+      { "province": "Frostguard Citadel", "kind": "army" }
+    ]
+  },
+  "396659832268259328": {
+    "name": "Big Master Kusho",
+    "units": [
+      { "province": "Basilich", "kind": "army" },
+      { "province": "Zhyun", "kind": "army" },
+      { "province": "Shon-Xan", "kind": "army" },
+      { "province": "Vlonqo", "kind": "army" },
+      { "province": "Ionia City", "kind": "army" },
+      { "province": "Raikkon Sea", "kind": "fleet" },
+      { "province": "Placidium of Navori", "kind": "army" },
+      { "province": "Temple of Pallas", "kind": "fleet" },
+      { "province": "Wuju", "kind": "fleet" }
+    ]
+  },
+  "359918073991397379": {
+    "name": "Carrot",
+    "units": [
+      { "province": "Ironwater", "kind": "army" },
+      { "province": "Zaun", "kind": "army" },
+      { "province": "Kumangra", "kind": "army" },
+      { "province": "Paretha", "kind": "army" },
+      { "province": "Killash", "kind": "army" },
+      { "province": "The Serpentine Delta", "kind": "army" },
+      { "province": "Mudtown", "kind": "army" },
+      { "province": "Harelport", "kind": "fleet" },
+      { "province": "Ixaocan", "kind": "army" }
+    ]
+  },
+  "377271826428198913": {
+    "name": "M.Cam 3.0",
+    "units": [
+      { "province": "Frostheld", "kind": "army" },
+      { "province": "Ghulfrost Mountain", "kind": "army" },
+      { "province": "Valar's Bay", "kind": "fleet" },
+      { "province": "Velorus Islands", "kind": "army" },
+      { "province": "Kilgrove", "kind": "army" },
+      { "province": "The Graygate", "kind": "army" }
+    ]
+  },
+  "566638174978179102": {
+    "name": "YamKiu",
+    "units": [
+      { "province": "Rokrund Plains", "kind": "army" },
+      { "province": "Aurma", "kind": "fleet" },
+      { "province": "The Great Sai 1", "kind": "army" },
+      { "province": "Kalduga", "kind": "army" },
+      { "province": "Gate of Shurima", "kind": "army" },
+      { "province": "Sai Khaleek", "kind": "army" },
+      { "province": "The City of Gardens", "kind": "fleet" },
+      { "province": "The Sun Disc", "kind": "army" },
+      { "province": "Urzeris", "kind": "fleet" }
+    ]
+  }
+}

@@ -25,7 +25,7 @@ type PlayerState = {
 
 type Positions = Record<string, PlayerState>;
 
-const DEMO_FALLBACK = true;
+const DEMO_FALLBACK = false;
 const DEMO_UNITS: readonly Unit[] = [
   { province: "Argent Mountains", kind: "army" },
   { province: "Antathir Plain", kind: "army" },

@@ -9,7 +9,20 @@ confirmed in an A/F pass.
 
 ---
 
-## M.Cam 3.0 — Discord ID: `__________`
+## Carrot — Discord ID: `359918073991397379`
+| current province | kind | from order |
+|---|---|---|
+| Ironwater | A | Ironwater - Full core (stays) |
+| Zaun | A | Kumangra → Zaun |
+| Kumangra | A | Kumunga → Kumangra |
+| Paretha | A | Paretha - Full Core (stays) |
+| Killash | A | Ixtal Valley → Killash |
+| The Serpentine Delta | A | The Serpentine Delta - Stay |
+| Mudtown | A | Winter build: A Mudtown |
+| Harelport | F | Winter build: F Harelport |
+| Ixaocan | A | Winter build: A Ixaocan |
+
+## M.Cam 3.0 — Discord ID: `377271826428198913`
 | current province | kind | from order |
 |---|---|---|
 | Frostheld | A | Fossbarrow → Frostheld |
