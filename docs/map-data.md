@@ -47,12 +47,18 @@ neighbour, in turn, lists every sub-space. For the sea specials the sub-spaces a
 mutually coastal; the two land specials (Valoran, Great Sai) are land-locked, so their
 sub-spaces carry no coastal links.
 
-## Canals
+## Canals / functional territories
 
-A canal is a land province circled by an ellipse/circle in the Borders layer. The 12:
-Bilgewater Bay, Calais, Dawnhold, Fae'lor, Fallgren, Piltover, Shadow Isles, Tereshni,
-The Serpentine Delta, Ursine Lands, Velorus Islands, Zuretta Archipelago.
-(The small circles drawn around the special sub-space numbers were excluded.)
+A canal is a province circled by an ellipse/circle. The circle is treated as **its own
+functional territory spanning the whole ellipse** — any border lines drawn through it are
+ignored, and the territory is adjacent to everything the circle touches (so it acts as a
+connector). The 12: Bilgewater Bay, Calais, Dawnhold, Fae'lor, Fallgren, Piltover,
+Shadow Isles, Tereshni, The Serpentine Delta, Ursine Lands, Velorus Islands,
+Zuretta Archipelago. (The small circles drawn around the special sub-space numbers were
+excluded.)
+
+> Note on names: several provinces use diacritics exactly as drawn in the SVG —
+> e.g. Naljaäg, Niverøya Island, Vlonqo, Urzeris — so plain-ASCII searches won't match.
 
 ## How it was built
 
@@ -81,7 +87,7 @@ purple = special seas, olive = special lands, orange = canals, grey = impassable
 - **Open-ocean boundaries** between sea provinces were completed automatically where you
   left gaps; in a few wide-open stretches the exact dividing line is the algorithm's best
   guess at the midline rather than a line you drew.
-- **The Serpentine Delta** is the one genuinely ambiguous marker: its text label sits in
-  open water, so it's treated as the circled delta-island canal (land) adjacent to
-  Bilgewater Pass, Harelport Bay, Amarantine Sea and The Jaws. Double-check it matches
-  your intent.
+- **Functional territories.** The 12 circled provinces are each treated as one whole-circle
+  connector territory (internal lines ignored), so they bridge the regions around them —
+  The Serpentine Delta, for instance, now links Bilgewater Pass, the Amarantine Sea,
+  Harelport, Harelport Bay, Mudtown and The Jaws.
